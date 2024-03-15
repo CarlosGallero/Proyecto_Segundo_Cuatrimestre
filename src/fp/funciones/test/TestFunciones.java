@@ -31,7 +31,7 @@ public class TestFunciones {
 
 	public static void testCalcularDiferencias() {
 		System.out.println("Probando el método calcularDiferencias:");
-		List<Integer> numeros = new ArrayList<>(Arrays.asList(5, 2, 3, 4, 5, 1));
+		List<Integer> numeros = new ArrayList<>(Arrays.asList(5, 6, 3, 4, 5, 1));
 		System.out.println(Funciones.calcularDiferencias(numeros));
 		System.out.println();
 	}
