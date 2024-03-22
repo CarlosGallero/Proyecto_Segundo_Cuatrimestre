@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
+import fp.tipos.Fecha;
+
 public record Fecha(Integer año, Integer mes, Integer dia) {
 
 	public String nombreMes() {
@@ -115,4 +117,27 @@ public record Fecha(Integer año, Integer mes, Integer dia) {
 	public static boolean esAñoBisiesto(int año) {
 		return (año % 4 == 0 && año % 100 != 0) || (año % 400 == 0);
 	}
+	
+	//AQUI EMPIEZA LA DEFENSA
+    public static List<Integer> restarDiasFechaDada(Fecha fecha, int numDias) {
+        if (numDias > 999) {
+            throw new IllegalArgumentException("El número de días no debe exceder los 999.");
+        }
+
+        int[] diasEnMes = { 31, esAñoBisiesto(fecha.año()) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        int añoActual = fecha.año();
+        int mesActual = fecha.mes();
+        int diaActual = fecha.dia() - numDias;
+
+        while (diaActual < 1) {
+            mesActual = mesActual - 1;
+            if (mesActual < 1) {
+                mesActual = 12;
+                añoActual = añoActual - 1;
+            }
+            diaActual += diasEnMes[mesActual - 1];
+        }
+
+        return Arrays.asList(diaActual, mesActual, añoActual);
+    }
 }

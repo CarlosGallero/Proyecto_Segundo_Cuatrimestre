@@ -37,6 +37,20 @@ public class TestFecha {
 		int diferencia = fecha1.diferenciaEnDias(fecha2);
 		System.out.println("Diferencia en días: " + diferencia); // Debería imprimir "4"
 	}
+	
+	//AQUI EMPIEZA LA DEFENSA
+    public static void testRestarDiasFechaDada() {
+        System.out.println("Test para restarDiasFechaDada:");
+        Fecha fecha = Fecha.of(2024, 3, 22);
+        int numDias = 5;
+        try {
+            var nuevaFecha = Fecha.restarDiasFechaDada(fecha, numDias);
+            System.out.println("Día: " + nuevaFecha.get(0));   // Debería imprimir "17"
+            System.out.println("Mes: " + nuevaFecha.get(1));   // Debería imprimir "3"
+            System.out.println("Año: " + nuevaFecha.get(2));   // Debería imprimir "2024"
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
 	public static void main(String[] args) {
 		testNombreMes();
@@ -44,5 +58,6 @@ public class TestFecha {
 		testSumarDias();
 		testRestarDias();
 		testDiferenciaEnDias();
+		testRestarDiasFechaDada();
 	}
 }

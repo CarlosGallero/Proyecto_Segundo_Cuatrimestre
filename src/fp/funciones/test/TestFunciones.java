@@ -42,6 +42,27 @@ public class TestFunciones {
 		System.out.println(Funciones.cadenaLarga(cadenas));
 		System.out.println();
 	}
+	public static void testP2() {
+		System.out.println("Probando el método P2:");
+		System.out.println(Funciones.P2(4, 2,1));
+		System.out.println(Funciones.P2(5, 4,2));
+		System.out.println();
+	}
+	
+	public static void testC2() {
+		System.out.println("Probando el método C2:");
+		System.out.println(Funciones.C2(4, 2));
+		System.out.println(Funciones.C2(5, 4));
+		System.out.println();
+	}
+	public static void testS2() {
+		System.out.println("Probando el método S2:");
+		System.out.println(Funciones.S2(3, 2));
+		System.out.println(Funciones.S2(4, 3));
+		System.out.println();
+	}
+
+
 
 	public static void main(String[] args) {
 		testPrimo();
@@ -49,5 +70,8 @@ public class TestFunciones {
 		testS();
 		testCalcularDiferencias();
 		testCadenaLarga();
+		testP2();
+		testC2();
+		testS2();
 	}
 }
